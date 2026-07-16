@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Takers Online | Professional Academic Assistance</title>
+    
+    <!-- ADDED FAVICON: Graduation Hat Icon for Browser Tab -->
+    <link class="favicon" rel="icon" type="image/svg+xml" href="https://api.iconify.design/fa-solid:graduation-cap.svg?color=%23FFCC00">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #FFCC00; /* Core Yellow */
+            --dark-color: #111111;    /* Pure Black */
+            --light-bg: #f9f9f9;      /* Off-White */
+            --text-color: #333333;
+            --white: #ffffff;
+            --dark-gray: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            color: var(--text-color);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* -------------------------------------------------------------
+           CRITICAL: GLOBAL BUTTON SHAPE ENFORCEMENT (Image 1 Shape)
+        ------------------------------------------------------------- */
+        .cta-btn, .corp-btn, button, input[type="submit"], a.cta-btn, a.corp-btn {
+            border-radius: 6px !important; /* Forces the subtle rectangular curve from Image 1 */
+        }
+
+        /* Top Bar Contact */
+        .top-bar {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 10px 50px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .top-bar a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--dark-color);
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--primary-color);
+            font-size: 30px;
+            margin-right: 10px;
+            animation: bounce 2s infinite;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            position: relative;
+            padding: 10px 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Dropdown Menu */
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--dark-color);
+            width: 220px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            padding: 10px 0;
+            border-radius: 4px;
+        }
+
+        nav ul li ul li a {
+            color: var(--white);
+            display: block;
+            padding: 10px 20px;
+        }
+
+        nav ul li ul li a:hover {
+            background-color: var(--primary-color);
+            color: var(--dark-color);
+        }
+
+        nav ul li:hover > ul {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        /* Header "Get A Quote" Button Specifics */
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: var(--dark-color);
+            padding: 10px 25px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            background-color: var(--dark-color);
+            color: var(--primary-color);
+        }
+
+        /* Hero Section Split Layout */
+        .hero {
+            background: linear-gradient(rgba(17, 17, 17, 0.85), rgba(17, 17, 17, 0.85)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 50px;
+            color: var(--white);
+            gap: 40px;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 650px;
+            animation: slideLeft 1s ease-out;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #cccccc;
+        }
+
+        /* Right Side Review Badges Box */
+        .hero-reviews-box {
+            flex: 1;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        .review-badge-card {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: transform 0.3s;
+        }
+
+        .review-badge-card:hover {
+            transform: translateX(-5px);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .badge-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .badge-brand span {
+            font-family: 'Inter', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-sitejabber span { text-transform: lowercase; font-weight: 700; }
+        .brand-sitejabber i { color: #eb6a2a; margin-right: 2px; } 
+        .brand-sitejabber .stars-container i { color: #eb6a2a; }
+
+        .brand-trustpilot span { font-weight: 600; letter-spacing: -0.8px; }
+        .brand-trustpilot i { color: #00b67a; margin-right: 2px; }
+        .brand-trustpilot .stars-container i { color: #00b67a; }
+
+        .brand-reviews span { text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; }
+        .brand-reviews span small { text-transform: lowercase; font-size: 14px; font-weight: 400; }
+        .brand-reviews i { color: #ffcc00; margin-right: 4px; }
+        .brand-reviews .stars-container i { color: #ffcc00; }
+
+        .stars-container {
+            display: flex;
+            gap: 4px;
+            font-size: 12px;
+            margin-top: 2px;
+        }
+
+        .badge-rating {
+            font-family: 'Inter', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            padding-left: 20px;
+            border-left: 1px solid rgba(255, 255, 255, 0.25);
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+        }
+
+        /* Generic Layout Helpers */
+        .section-padding {
+            padding: 80px 50px;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 50px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .light-section .section-header h2 { color: var(--dark-color); }
+        .dark-section .section-header h2 { color: var(--white); }
+
+        .section-header p {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .light-section .section-header p { color: #555; }
+        .dark-section .section-header p { color: #ccc; }
+
+        /* Feature Split Layout */
+        .feature-split {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .feature-image-side {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .feature-image-side img {
+            max-width: 100%;
+            border-radius: 12px;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 15px;
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--dark-color);
+        }
+
+        .feature-item i {
+            font-size: 24px;
+            color: var(--primary-color);
+            background: var(--dark-color);
+            padding: 10px;
+            border-radius: 6px;
+            height: fit-content;
+        }
+
+        .feature-item-text h4 {
+            font-size: 17px;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+
+        .feature-item-text p {
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* Corporate Banner Strips */
+        .banner-corporate {
+            background-color: var(--dark-color);
+            color: var(--white);
+            text-align: center;
+            padding: 45px 20px;
+            border-top: 3px solid var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .banner-corporate h3 {
+            font-size: 26px;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .banner-corporate p {
+            font-size: 18px;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .corporate-btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        /* Strip Buttons Base Setup */
+        .corp-btn {
+            background-color: var(--primary-color);
+            color: var(--dark-color);
+            padding: 12px 35px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .corp-btn.dark-variant {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .corp-btn.dark-variant:hover {
+            background-color: var(--white);
+            color: var(--dark-color);
+        }
+
+        .corp-btn:hover {
+            background-color: var(--white);
+            color: var(--dark-color);
+        }
+
+        /* Text Block System Matrices */
+        .matrix-text-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .light-section .matrix-text-grid { color: #444; }
+        .dark-section .matrix-text-grid { color: #ddd; }
+
+        .matrix-text-full {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .light-section .matrix-text-full { color: #444; }
+        .dark-section .matrix-text-full { color: #ddd; }
+
+        /* Counter Elements */
+        .metric-counter-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .metric-card {
+            padding: 25px 15px;
+            border-radius: 6px;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .light-section .metric-card { background: var(--light-bg); }
+        .dark-section .metric-card { background: rgba(255, 255, 255, 0.05); }
+
+        .metric-card h3 {
+            font-size: 34px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .light-section .metric-card h3 { color: var(--dark-color); }
+        .dark-section .metric-card h3 { color: var(--primary-color); }
+        .dark-section .metric-card p { color: #bbb; }
+
+        /* Guarantee Layout Grid */
+        .guarantee-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .guarantee-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 25px 20px;
+            border-radius: 6px;
+        }
+
+        .guarantee-card h4 {
+            color: var(--primary-color);
+            font-size: 15px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .guarantee-card p {
+            font-size: 13px;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        /* Subjects Block Inside Yellow Container Box */
+        .yellow-subjects-box {
+            background: var(--white);
+            border: 3px solid var(--primary-color);
+            border-radius: 8px;
+            max-width: 1000px;
+            margin: 50px auto 0;
+            padding: 40px 30px;
+            color: var(--dark-color);
+            text-align: center;
+        }
+
+        .yellow-subjects-box h3 {
+            font-size: 24px;
+            color: var(--dark-color);
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .subjects-matrix-columns {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px 25px;
+            text-align: left;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .subjects-matrix-columns li {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .subjects-matrix-columns li::before {
+            content: "▶";
+            color: var(--primary-color);
+            font-size: 11px;
+        }
+
+        /* University Slider - 3 Items Perfectly Visible at a Time */
+        .usa-ticker-section {
+            background: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        .usa-ticker-section h3 {
+            font-size: 26px;
+            color: var(--dark-color);
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .uni-slider-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .uni-slider-rail {
+            display: flex;
+            gap: 20px; /* Space between cards */
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .uni-card {
+            background: var(--light-bg);
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            font-weight: 700;
+            color: var(--dark-color);
+            font-size: 16px;
+            /* Formula to divide space into exactly 3 items accounting for gaps */
+            flex: 0 0 calc((100% - 40px) / 3); 
+            box-sizing: border-box;
+        }
+
+        .uni-card i {
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        /* Modern Reviews Carousel Section with Square Images */
+        .reviews-slider-container {
+            max-width: 950px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            height: 240px;
+        }
+
+        .slider-rail {
+            display: flex;
+            width: 300%; 
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .custom-review-slide {
+            width: 33.333%;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .inner-review-card {
+            background: var(--light-bg);
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 30px;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        /* Clean Square Avatar Layout */
+        .inner-review-card img {
+            width: 95px;
+            height: 95px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            flex-shrink: 0;
+        }
+
+        .card-details h4 {
+            font-size: 18px;
+            color: var(--dark-color);
+        }
+
+        .card-details h5 {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .card-details p {
+            font-size: 14px;
+            color: #333;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        /* Accordion Block Styling */
+        .accordion-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .accordion-block {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 18px 0;
+        }
+
+        .accordion-trigger {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--white);
+            font-size: 15px;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: #ccc;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .accordion-block.active .accordion-content {
+            max-height: 120px;
+            margin-top: 12px;
+        }
+
+        .accordion-block.active .accordion-trigger i {
+            transform: rotate(180deg);
+            color: var(--primary-color);
+        }
+
+        /* BLACK THEME CONTACT PANEL LIKE PREVIOUS/IMAGE LAYOUT */
+        .corporate-contact-panel {
+            background-color: var(--dark-color);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .corporate-contact-panel h2 {
+            font-size: 28px;
+            margin-bottom: 40px;
+            color: var(--white);
+        }
+
+        .panel-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .panel-card {
+            border: 2px solid #222;
+            background: #1a1a1a;
+            border-radius: 6px;
+            padding: 30px 15px;
+            transition: 0.3s;
+            text-decoration: none;
+            color: var(--white);
+            display: block;
+        }
+
+        .panel-card:hover {
+            border-color: var(--primary-color);
+            background: #222;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,204,0,0.1);
+        }
+
+        .panel-card i {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Core Features Section */
+        .features {
+            padding: 80px 50px;
+            text-align: center;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: var(--dark-color);
+        }
+
+        .section-title span {
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--light-bg);
+            padding: 40px 30px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            background: var(--white);
+            box-shadow: 0 15px 30px rgba(255, 204, 0, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .card i {
+            font-size: 45px;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+            color: var(--dark-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 60px 50px 20px;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bbbbbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #222222;
+            padding-top: 20px;
+            font-size: 14px;
+            color: #888888;
+        }
+
+        /* Layout Keyframes */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 991px) {
+            .hero, .feature-split { flex-direction: column; text-align: center; }
+            .hero-reviews-box, .matrix-text-grid, .metric-counter-row, .guarantee-grid, .panel-grid { grid-template-columns: repeat(2, 1fr); }
+            .subjects-matrix-columns { grid-template-columns: repeat(2, 1fr); }
+            .uni-card { flex: 0 0 calc((100% - 20px) / 2); } /* 2 on tablets */
+        }
+
+        @media (max-width: 768px) {
+            header, .top-bar, .section-padding, .features { padding: 20px; }
+            nav { display: none; }
+            .hero-reviews-box, .matrix-text-grid, .metric-counter-row, .guarantee-grid, .panel-grid, .subjects-matrix-columns { grid-template-columns: 1fr; }
+            .uni-card { flex: 0 0 100%; } /* 1 on mobile screens */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Contact Bar -->
+    <div class="top-bar">
+        <div class="left"><i class="fa-solid fa-graduation-cap"></i> Welcome to Class Takers Online</div>
+        <div class="right">
+            <i class="fa-solid fa-envelope"></i> <a href="mailto:classtakersonline@gmail.com">classtakersonline@gmail.com</a>
+            <i class="fa-solid fa-phone" style="margin-left: 15px;"></i> <a href="tel:+16475563085">+1 (647) 556-3085</a>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header>
+        <a href="index.html" class="logo">
+            <i class="fa-solid fa-graduation-cap"></i> Class Takers Online
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <a href="#">Our Services <i class="fa-solid fa-chevron-down" style="font-size: 12px;"></i></a>
+                    <ul>
+                        <li><a href="online-classes.html">Take My Online Class</a></li>
+                        <li><a href="online-exams.html">Take My Online Exam</a></li>
+                        <li><a href="homework-help.html">Homework Assistance</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <a href="contact.html" class="cta-btn">Get A Quote</a>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Excel in Your Academics with <span>Class Takers Online</span></h1>
+            <p>Struggling with online courses, urgent exams, or lengthy assignments? Let our subject experts handle the workload while you secure top grades smoothly.</p>
+            <a href="contact.html" class="cta-btn" style="padding: 15px 35px; font-size: 18px;">Hire an Expert Now</a>
+        </div>
+
+        <div class="hero-reviews-box">
+            <div class="review-badge-card">
+                <div class="badge-brand brand-sitejabber">
+                    <span><i class="fa-solid fa-rocket"></i>sitejabber</span>
+                    <div class="stars-container">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                </div>
+                <div class="badge-rating">4.6</div>
+            </div>
+
+            <div class="review-badge-card">
+                <div class="badge-brand brand-trustpilot">
+                    <span><i class="fa-solid fa-star"></i>Trustpilot</span>
+                    <div class="stars-container">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <div class="badge-rating">4.7</div>
+            </div>
+
+            <div class="review-badge-card">
+                <div class="badge-brand brand-reviews">
+                    <span>REVIEWS<small>.io</small></span>
+                    <div class="stars-container">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <div class="badge-rating">4.6</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: Why do students ask to hire someone -->
+    <section class="section-padding light-section">
+        <div class="section-header">
+            <h2>Why do students ask to hire someone to take my exam for me at the last minute?</h2>
+            <p>You can pick an expert to take my exam who fits your standard and price requirements. There are more than 600+ PhD online exam help experts to help you with online exams.</p>
+        </div>
+        <div class="feature-split">
+            <div class="feature-side">
+                <div class="feature-item">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <div class="feature-item-text">
+                        <h4>Final Work Order Preview</h4>
+                        <p>Check your order comprehensively before final payment parameters.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <div class="feature-item-text">
+                        <h4>Various Method Of Payment</h4>
+                        <p>Safe transacting through PayPal, Zelle, or secure credit cards.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <div class="feature-item-text">
+                        <h4>Guaranteed Plagiarism-Free Work</h4>
+                        <p>Receive 100% original, verified high accuracy plagiarism-free reports.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-image-side">
+                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=500&q=80" alt="Student studying">
+            </div>
+            <div class="feature-side">
+                <div class="feature-item">
+                    <i class="fa-solid fa-headset"></i>
+                    <div class="feature-item-text">
+                        <h4>GETEXAMDONE Features</h4>
+                        <p>Live dedicated chat support module is available around the clock 24/7.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <div class="feature-item-text">
+                        <h4>Choose Your Expert</h4>
+                        <p>Select tailored match options from over 600+ premium PhD active experts.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <div class="feature-item-text">
+                        <h4>Go Mobile</h4>
+                        <p>Track status anywhere cleanly using our fully dynamic user-friendly mobile layout.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORPORATE STRIP BANNER -->
+    <div class="banner-corporate">
+        <h3>Pay Someone to Do My Exam For Me On Your First Order</h3>
+        <p>GET A 30% WELCOMING DISCOUNT!</p>
+        <div class="corporate-btn-group">
+            <a href="contact.html" class="corp-btn">ORDER NOW</a>
+            <a href="#" class="corp-btn dark-variant">LIVE CHAT</a>
+        </div>
+    </div>
+
+    <!-- SECTION 2: Get The Best Online Exam Help -->
+    <section class="section-padding light-section">
+        <div class="section-header">
+            <h2>Get The Best Online Exam Help When You Asked Us To Take My Exam For Me</h2>
+        </div>
+        <div class="matrix-text-grid">
+            <div>
+                Today's educational system, especially colleges, values online exams more. These exams are crucial for assessing student learning from reading and class. They also assist teachers in evaluating each student's performance in class, considering all abilities and knowledge. Exams are especially important because they determine students' future paths. Many students prepare hard and take their exams independently, but more are using online exam takers for reasons like not having enough time to study or doubting their ability.
+            </div>
+            <div>
+                Nowadays, hiring someone to take online exams is easy and stress-free for students. This program can benefit students who struggle to balance studies with employment or interests. Students must fill out an order form and receive an order ID when they want to hire someone to take my exam. After sharing exam information, they must choose and pay a professional from a list to take my online exam. The service provider then calls the student an hour before the exam to verify all details and make any necessary changes.
+            </div>
+        </div>
+        <div class="matrix-text-full">
+            Our Online exam-taking services have been around since 2020. Many students use our test-prep services, which have passed over 300 assessments, proving their efficacy. Remember that not all exams can utilize this service. When you say take my online exam for me, we make sure that students receive high-quality grades and ace their exams. This new trend shows how important and helpful these academic services are because students have difficulty balancing their personal and academic lives.
+        </div>
+        <div class="metric-counter-row">
+            <div class="metric-card">
+                <h3>5 min</h3>
+                <p>Average Response Time</p>
+            </div>
+            <div class="metric-card">
+                <h3>97.3%</h3>
+                <p>Thumbs up for support</p>
+            </div>
+            <div class="metric-card">
+                <h3>100%</h3>
+                <p>Data privacy & protection</p>
+            </div>
+            <div class="metric-card">
+                <h3>100%</h3>
+                <p>Money-back guarantee</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: What We Guarantee & Subjects -->
+    <section class="section-padding dark-section" style="background: linear-gradient(rgba(17,17,17,0.96), rgba(17,17,17,0.96)), url('https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=1200&q=80') center/cover;">
+        <div class="section-header">
+            <p style="color: var(--primary-color); font-weight: 600; text-transform: uppercase; font-size: 13px; letter-spacing: 1px; margin-bottom:5px;">What We Guarantee</p>
+            <h2>When You Pay Someone To Do My Exam</h2>
+        </div>
+        <div class="guarantee-grid">
+            <div class="guarantee-card">
+                <h4>On-Time Delivery</h4>
+                <p>There is no point in getting help from someone if you are not getting that help on time. Our policy is to deliver order parameters inside your absolute closure timeline window safely.</p>
+            </div>
+            <div class="guarantee-card">
+                <h4>Top Grades</h4>
+                <p>We know that grades are important. When you order from us, you can be sure that you will get the exact grades you want. Our academic experts are graduate professionals.</p>
+            </div>
+            <div class="guarantee-card">
+                <h4>Low Prices</h4>
+                <p>Price is essential for students working multiple jobs to sustain themselves. Our prices for academic assistance are some of the lowest in the market structural brackets.</p>
+            </div>
+            <div class="guarantee-card">
+                <h4>Original Work</h4>
+                <p>We stand completely against plagiarism parameters. Our project sets undergo thorough multi-layered internal quality validation checks to guarantee zero percentage overlap.</p>
+            </div>
+        </div>
+
+        <!-- Yellow Border Box Inside Dark Section -->
+        <div class="yellow-subjects-box">
+            <h3>OUR SUBJECTS</h3>
+            <ul class="subjects-matrix-columns">
+                <li>Mathematics</li><li>Statistics</li><li>Economics</li>
+                <li>Business Administration</li><li>Criminal Justice</li><li>Accounting</li>
+                <li>Law & Legal</li><li>Nursing</li><li>Algebra</li>
+                <li>Business Management</li><li>Marketing Management</li><li>Computer Sciences</li>
+                <li>Bio Sciences</li><li>Biology</li><li>Chemistry</li>
+                <li>Physics</li><li>English Literature</li><li>Social Sciences</li>
+                <li>Sociology</li><li>Education</li><li>Human Resources</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Can I Pay Someone To Do My Exam -->
+    <section class="section-padding light-section">
+        <div class="section-header">
+            <h2>Can I Pay Someone To Do My Exam With Class Takers Online</h2>
+        </div>
+        <div class="matrix-text-grid">
+            <div>
+                If you are a student with many responsibilities or unexpected problems, hiring someone to take your online exam may make sense. Our website guarantees good exam scores by offering affordable and dependable services when you ask us to do my exam for me. It is a trusted student site worldwide because of its on-time deliveries and high grades. We offer several online exam-taking services. Proctored tests are closely watched to prevent cheating. We prevent problems with IP addresses and single sign-on.
+            </div>
+            <div>
+                The fact that they have good reviews on Trustpilot and Sitejabber shows that many clients have benefited from their knowledge. Our platform makes it easy to hire someone to take my exam. Sending in an order form will give you a unique order ID that you can use to keep track of your test progress. Then, you tell them the exam's time, length, subject, and method. Students can quickly take their online tests through us. This flexibility provides more options when students face difficulties.
+            </div>
+        </div>
+        <div class="metric-counter-row">
+            <div class="metric-card">
+                <h3>3 Hours</h3>
+                <p>Urgent deadline support</p>
+            </div>
+            <div class="metric-card">
+                <h3>90%</h3>
+                <p>Our recurring clients</p>
+            </div>
+            <div class="metric-card">
+                <h3>400</h3>
+                <p>Custom assignments daily</p>
+            </div>
+            <div class="metric-card">
+                <h3>4.9</h3>
+                <p>Rating metrics overview</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: Frequently Asked Questions Accordion -->
+    <section class="section-padding dark-section" style="background-color: var(--dark-gray);">
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="accordion-wrapper">
+            <div class="accordion-block">
+                <div class="accordion-trigger">How do I hire a test taker? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="accordion-content">Simply fill out our online quote order placement form block. Submit your specific portal configuration timelines, and our operational backend automatically assigns a credentialed subject matter PhD candidate immediately.</div>
+            </div>
+            <div class="accordion-block">
+                <div class="accordion-trigger">Are your services safe and private? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="accordion-content">Yes, absolutely. We enforce enterprise-grade end-to-end multi-layer network protection mechanisms along with local static IP proxy configurations matching your structural region securely.</div>
+            </div>
+            <div class="accordion-block">
+                <div class="accordion-trigger">What if I'm unhappy with my test score? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="accordion-content">We back all academic portal acquisitions with a direct contractual tier grade fallback clause providing transparent full evaluation safety parameters.</div>
+            </div>
+            <div class="accordion-block">
+                <div class="accordion-trigger">Can I see a sample of my order before paying? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="accordion-content">Yes, we provide dynamic drafts and partial sample review windows for verification parameters prior to terminal transaction captures.</div>
+            </div>
+            <div class="accordion-block">
+                <div class="accordion-trigger">What tests can you do? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="accordion-content">We encompass proctored system engines, terminal course analytics, homework arrays, calculations, quizzes, and dynamic evaluation setups across 40+ dynamic fields.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: Do My Online Exam For All Portals -->
+    <section class="section-padding light-section">
+        <div class="section-header">
+            <h2>Do My Online Exam For All The University And College Portals</h2>
+            <p style="margin-top:20px; max-width:950px; margin-inline:auto;">When you come to exam help, we know that college exams can be hard and scary. That's why we offer online exam help for all kinds of exams and portals when you say do my online exam for me. With years of experience, we can help you take the stress out of college and university exams by giving you a safe and private way to do so. You can take your own online test, pay someone to take it or have someone else take it for you. We're here to help! Along with ALEKS, CENGAGENOW, MYPEARSONLAB, CENGAGE BRAIN, CONNECT, and others, there are also MYMATHLAB, MYSTATLAB, MYACCOUNTINGLAB, MYSPANISHLAB, MYITALIANLAB, STRAIGHTERLINE, and many more.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 7: Top USA Universities Slider (3 Visible at a Time) -->
+    <div class="usa-ticker-section">
+        <h3>Top USA Universities</h3>
+        <div class="uni-slider-container">
+            <div class="uni-slider-rail" id="uniRail">
+                <div class="uni-card"><i class="fa-solid fa-building-columns"></i> Harvard University</div>
+                <div class="uni-card"><i class="fa-solid fa-building-columns"></i> Stanford University</div>
+                <div class="uni-card"><i class="fa-solid fa-building-columns"></i> MIT School</div>
+                <div class="uni-card"><i class="fa-solid fa-building-columns"></i> Yale University</div>
+                <div class="uni-card"><i class="fa-solid fa-building-columns"></i> Princeton University</div>
+                <div class="uni-card"><i class="fa-solid fa-building-columns"></i> Columbia University</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 8: REVERTED TO PERFECT DARK PANEL BACKGROUND -->
+    <section class="section-padding corporate-contact-panel">
+        <p style="text-transform: uppercase; letter-spacing:1px; color: var(--primary-color); font-weight:600; margin-bottom:10px; font-size:13px;">We offer more than just online exam help</p>
+        <h2>Highest Standard That Builds Relationships That Last<br>Contact Us Now</h2>
+        <div class="panel-grid">
+            <a href="tel:+16475563085" class="panel-card">
+                <i class="fa-solid fa-phone-volume"></i>
+                <h4>Sales & Support</h4>
+            </a>
+            <a href="mailto:classtakersonline@gmail.com" class="panel-card">
+                <i class="fa-solid fa-envelope-open-text"></i>
+                <h4>Get In Touch</h4>
+            </a>
+            <a href="https://wa.me/16475563085" class="panel-card">
+                <i class="fa-brands fa-whatsapp"></i>
+                <h4>Whatsapp</h4>
+            </a>
+            <a href="#" class="panel-card">
+                <i class="fa-solid fa-comments"></i>
+                <h4>Live Chat</h4>
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION 9: Clients Reviews Carousel with SQUARE Images -->
+    <section class="section-padding light-section" style="background-color: #fcfcfc; border-top: 1px solid #eee;">
+        <div class="section-header">
+            <h2>Clients Reviews</h2>
+            <p>See what our client has to say about our pay to do my exam service</p>
+        </div>
+        <div class="reviews-slider-container">
+            <div class="slider-rail" id="reviewRail">
+                <div class="custom-review-slide">
+                    <div class="inner-review-card">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&h=200&q=80" alt="Liam">
+                        <div class="card-details">
+                            <h4>Liam S. (Illinois)</h4>
+                            <h5>Operations</h5>
+                            <p>"Get Exam Done let me focus on work without worrying about online assessments. You may trust their team to earn you good grades. Their service delights me."</p>
+                            <span style="font-size:12px; font-weight:700; color:var(--dark-color); display:block; margin-top:8px;">Assignment: 8 Pages, Deadline: 5 days</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="custom-review-slide">
+                    <div class="inner-review-card">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&h=200&q=80" alt="John">
+                        <div class="card-details">
+                            <h4>John D. (California)</h4>
+                            <h5>HRM</h5>
+                            <p>"I used Get Exam Done to pay for online exam help since I was struggling with my online statistics test. I got an A thanks to my wonderful professional. I like their services!"</p>
+                            <span style="font-size:12px; font-weight:700; color:var(--dark-color); display:block; margin-top:8px;">Assignment: 10 Pages, Deadline: 3 days</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="custom-review-slide">
+                    <div class="inner-review-card">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&h=200&q=80" alt="Sarah">
+                        <div class="card-details">
+                            <h4>Sarah M. (Texas)</h4>
+                            <h5>Management Portal</h5>
+                            <p>"Class Takers Online completely saved my semester! I was managing a part-time job along with my degree and couldn't keep up with portals. They handled everything perfectly."</p>
+                            <span style="font-size:12px; font-weight:700; color:var(--dark-color); display:block; margin-top:8px;">Quiz: Proctored, Score: 96%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 10: Core Expert Grid Features -->
+    <section class="features" style="border-top: 1px solid #eee;">
+        <h2 class="section-title">Why Choose <span>Our Experts</span>?</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fa-solid fa-user-shield"></i>
+                <h3>100% Secure & Private</h3>
+                <p>Your academic identity and credentials stay encrypted with our premium secure server systems.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-clock"></i>
+                <h3>On-Time Submission</h3>
+                <p>We respect tight deadlines. Get your complex quizzes and reports completed well before your closing dates.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-award"></i>
+                <h3>A+ Grade Guarantee</h3>
+                <p>Our top tier subject experts ensure high professional work accuracy to deliver optimal grade feedback.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multi-Column Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Class Takers Online</h4>
+                <p style="color: #bbbbbb; font-size: 14px;">Your elite companion for stress-free online dynamic learning management systems.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="online-classes.html">Take My Class</a></li>
+                    <li><a href="online-exams.html">Take My Exam</a></li>
+                    <li><a href="homework-help.html">Homework Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get In Touch</h4>
+                <p style="color: #bbbbbb; font-size: 14px; margin-bottom: 10px;"><i class="fa-solid fa-envelope" style="color: var(--primary-color);"></i> classtakersonline@gmail.com</p>
+                <p style="color: #bbbbbb; font-size: 14px;"><i class="fa-solid fa-phone" style="color: var(--primary-color);"></i> +1 (647) 556-3085</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Class Takers Online. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Controls -->
+    <script>
+        // Smooth Automated Reviews Slider
+        let reviewIndex = 0;
+        const reviewRail = document.getElementById('reviewRail');
+        setInterval(() => {
+            reviewIndex = (reviewIndex + 1) % 3;
+            reviewRail.style.transform = `translateX(-${(reviewIndex * 33.333)}%)`;
+        }, 5000);
+
+        // Smooth Automated University Slider (3 Items view shifting dynamically)
+        let uniIndex = 0;
+        const uniRail = document.getElementById('uniRail');
+        const totalUnis = document.querySelectorAll('#uniRail .uni-card').length;
+
+        setInterval(() => {
+            // Checks elements count and limits shifting steps to maintain 3 items layout structure
+            uniIndex = (uniIndex + 1) % (totalUnis - 2); 
+            
+            const cardWidth = document.querySelector('.uni-card').offsetWidth;
+            const moveX = uniIndex * (cardWidth + 20); // Width + dynamic gap offset
+            
+            uniRail.style.transform = `translateX(-${moveX}px)`;
+        }, 4000);
+
+        // Accordion Management Logic
+        const accBlocks = document.querySelectorAll('.accordion-block');
+        accBlocks.forEach(block => {
+            const trigger = block.querySelector('.accordion-trigger');
+            trigger.addEventListener('click', () => {
+                const isCurrentlyActive = block.classList.contains('active');
+                accBlocks.forEach(b => b.classList.remove('active'));
+                if (!isCurrentlyActive) {
+                    block.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

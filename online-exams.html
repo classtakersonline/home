@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take My Online Exam | Class Takers Online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-color: #FFCC00; --dark-color: #111111; --light-bg: #f9f9f9; --text-color: #333333; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { color: var(--text-color); background-color: var(--white); }
+
+        .top-bar { background-color: var(--dark-color); color: var(--white); padding: 10px 50px; display: flex; justify-content: space-between; font-size: 14px; border-bottom: 2px solid var(--primary-color); }
+        .top-bar a { color: var(--primary-color); text-decoration: none; margin-left: 15px; }
+        header { background-color: var(--white); box-shadow: 0 4px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; font-weight: 700; font-size: 22px; color: var(--dark-color); text-decoration: none; }
+        .logo i { color: var(--primary-color); font-size: 30px; margin-right: 10px; }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { position: relative; padding: 10px 15px; }
+        nav ul li a { text-decoration: none; color: var(--dark-color); font-weight: 600; }
+        nav ul li ul { display: none; position: absolute; top: 100%; left: 0; background-color: var(--dark-color); width: 220px; padding: 10px 0; }
+        nav ul li ul li a { color: var(--white); display: block; padding: 10px 20px; }
+        nav ul li ul li a:hover { background-color: var(--primary-color); color: var(--dark-color); }
+        nav ul li:hover > ul { display: block; }
+        .cta-btn { background-color: var(--primary-color); color: var(--dark-color); padding: 10px 25px; border-radius: 6px; font-weight: 600; text-decoration: none; transition: 0.3s; }
+        .cta-btn:hover { background-color: var(--dark-color); color: var(--primary-color); }
+
+        .page-banner { background: linear-gradient(rgba(17,17,17,0.9), rgba(17,17,17,0.9)), url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1950&q=80') center/cover; padding: 100px 50px; text-align: center; color: var(--white); }
+        .page-banner h1 span { color: var(--primary-color); }
+
+        .exam-urgency-notice { background-color: var(--primary-color); color: var(--dark-color); padding: 20px; text-align: center; font-weight: 600; font-size: 18px; box-shadow: inset 0 0 10px rgba(0,0,0,0.1); }
+        .exam-urgency-notice a { color: var(--dark-color); text-decoration: underline; margin-left: 10px; }
+
+        .content-section { padding: 80px 50px; display: flex; gap: 50px; align-items: center; max-width: 1200px; margin: 0 auto; }
+        .content-text { flex: 1; }
+        .content-text h2 { font-size: 32px; margin-bottom: 20px; }
+        .content-text p { font-size: 16px; line-height: 1.8; color: #555; margin-bottom: 20px; }
+        .content-img { flex: 1; text-align: center; }
+        .content-img img { max-width: 100%; border-radius: 12px; }
+
+        /* Steps Framework */
+        .process-steps { background: var(--light-bg); padding: 80px 50px; text-align: center; }
+        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1200px; margin: 40px auto 0; }
+        .step-node { background: var(--white); padding: 30px; border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); position: relative; }
+        .step-node .badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--dark-color); color: var(--primary-color); width: 40px; height: 40px; border-radius: 50%; line-height: 40px; font-weight: 700; }
+        .step-node h4 { margin: 20px 0 10px; font-size: 20px; }
+
+        footer { background-color: var(--dark-color); color: var(--white); padding: 60px 50px 20px; border-top: 4px solid var(--primary-color); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { color: var(--primary-color); margin-bottom: 20px; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: #bbbbbb; text-decoration: none; }
+        .footer-bottom { text-align: center; border-top: 1px solid #222222; padding-top: 20px; font-size: 14px; color: #888888; }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="left"><i class="fa-solid fa-graduation-cap"></i> Welcome to Class Takers Online</div>
+        <div class="right">
+            <i class="fa-solid fa-envelope"></i> <a href="mailto:classtakersonline@gmail.com">classtakersonline@gmail.com</a>
+            <i class="fa-solid fa-phone" style="margin-left: 15px;"></i> <a href="tel:+16475563085">+1 (647) 556-3085</a>
+        </div>
+    </div>
+
+    <header>
+        <a href="index.html" class="logo"><i class="fa-solid fa-graduation-cap"></i> Class Takers Online</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <a href="#">Our Services <i class="fa-solid fa-chevron-down" style="font-size: 12px;"></i></a>
+                    <ul>
+                        <li><a href="online-classes.html">Take My Online Class</a></li>
+                        <li><a href="online-exams.html">Take My Online Exam</a></li>
+                        <li><a href="homework-help.html">Homework Assistance</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <a href="contact.html" class="cta-btn">Get A Quote</a>
+    </header>
+
+    <div class="exam-urgency-notice">
+        <i class="fa-solid fa-triangle-exclamation"></i> Have an urgent online exam or quiz closing within 24 hours? <a href="tel:+16475563085">Call us instantly at +1 (647) 556-3085</a>
+    </div>
+
+    <section class="page-banner">
+        <h1>Secure Top Grades in <span>Online Exams</span></h1>
+        <p>Professional proctored system handling configurations to counter structural examination blockades cleanly.</p>
+    </section>
+
+    <section class="content-section">
+        <div class="content-img">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=500&q=80" alt="Examination Management Workspace">
+        </div>
+        <div class="content-text">
+            <h2>Proctored & Standard Examination Coverage</h2>
+            <p>Our academic teams understand how stressful midterms and final evaluation windows can get. We support direct structural deployment setups across diversified tracks including Mathematics, Nursing, Business Administration, and Engineering.</p>
+            <p>Whether your portals track lock-down configurations, basic multi-choice segments, or complex structural case problem computations, our dedicated experts run complete audits before the active timer initialization.</p>
+            <a href="contact.html" class="cta-btn">Book Exam Proxy</a>
+        </div>
+    </section>
+
+    <section class="process-steps">
+        <h2>How We <span>Secure Your Rank</span></h2>
+        <div class="steps-grid">
+            <div class="step-node">
+                <div class="badge">01</div>
+                <h4>Share Details</h4>
+                <p>Send your test curriculum framework along with active deadline timestamps.</p>
+            </div>
+            <div class="step-node">
+                <div class="badge">02</div>
+                <h4>Expert Matching</h4>
+                <p>We assign an elite native field post-graduate evaluator to audit your core portal modules.</p>
+            </div>
+            <div class="step-node">
+                <div class="badge">03</div>
+                <h4>A+ Delivery</h4>
+                <p>Our expert completes the live tracking timeline securely keeping total connection safety metrics active.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Class Takers Online</h4>
+                <p style="color: #bbbbbb; font-size: 14px;">Your elite companion for stress-free online dynamic learning management systems.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="online-classes.html">Take My Class</a></li>
+                    <li><a href="online-exams.html">Take My Exam</a></li>
+                    <li><a href="homework-help.html">Homework Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get In Touch</h4>
+                <p style="color: #bbbbbb; font-size: 14px; margin-bottom: 10px;"><i class="fa-solid fa-envelope" style="color: var(--primary-color);"></i> classtakersonline@gmail.com</p>
+                <p style="color: #bbbbbb; font-size: 14px;"><i class="fa-solid fa-phone" style="color: var(--primary-color);"></i> +1 (647) 556-3085</p>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 Class Takers Online. All Rights Reserved.</p></div>
+    </footer>
+</body>
+</html>

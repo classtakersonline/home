@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us & Get a Quote | Class Takers Online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --primary-color: #FFCC00; 
+            --dark-color: #111111; 
+            --light-bg: #f9f9f9; 
+            --text-color: #333333; 
+            --white: #ffffff; 
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { color: var(--text-color); background-color: var(--white); }
+
+        /* Top Bar */
+        .top-bar { background-color: var(--dark-color); color: var(--white); padding: 10px 50px; display: flex; justify-content: space-between; font-size: 14px; border-bottom: 2px solid var(--primary-color); }
+        .top-bar a { color: var(--primary-color); text-decoration: none; margin-left: 15px; }
+        
+        /* Header & Logo Components */
+        header { background-color: var(--white); box-shadow: 0 4px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; font-weight: 700; font-size: 22px; color: var(--dark-color); text-decoration: none; }
+        .logo i { color: var(--primary-color); font-size: 30px; margin-right: 10px; }
+        
+        /* Navigation Links */
+        nav ul { display: flex; list-style: none; }
+        nav ul li { position: relative; padding: 10px 15px; }
+        nav ul li a { text-decoration: none; color: var(--dark-color); font-weight: 600; }
+        nav ul li ul { display: none; position: absolute; top: 100%; left: 0; background-color: var(--dark-color); width: 220px; padding: 10px 0; border-radius: 4px; }
+        nav ul li ul li a { color: var(--white); display: block; padding: 10px 20px; }
+        nav ul li ul li a:hover { background-color: var(--primary-color); color: var(--dark-color); }
+        nav ul li:hover > ul { display: block; }
+        
+        .cta-btn { background-color: var(--primary-color); color: var(--dark-color); padding: 10px 25px; border-radius: 6px; font-weight: 600; text-decoration: none; transition: 0.3s; }
+        .cta-btn:hover { background-color: var(--dark-color); color: var(--primary-color); }
+
+        /* Banner Components */
+        .page-banner { background: linear-gradient(rgba(17,17,17,0.9), rgba(17,17,17,0.9)), url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1950&q=80') center/cover; padding: 100px 50px; text-align: center; color: var(--white); }
+        .page-banner h1 span { color: var(--primary-color); }
+
+        /* Split Contact Layout */
+        .contact-container { padding: 80px 50px; max-width: 1200px; margin: 0 auto; display: flex; gap: 50px; }
+        .contact-info { flex: 1; }
+        .contact-info h2 { font-size: 32px; margin-bottom: 25px; }
+        .contact-info p { font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 30px; }
+        
+        .info-card { display: flex; align-items: center; margin-bottom: 25px; background: var(--light-bg); padding: 20px; border-radius: 8px; }
+        .info-card i { font-size: 28px; color: var(--dark-color); background: var(--primary-color); width: 60px; height: 60px; text-align: center; line-height: 60px; border-radius: 50%; margin-right: 20px; }
+        .info-card h4 { font-size: 18px; color: var(--dark-color); }
+        .info-card p { margin: 0; color: #666; font-size: 15px; }
+
+        /* Premium Form Block */
+        .contact-form-wrapper { flex: 1.2; background: var(--white); padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-top: 5px solid var(--primary-color); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 8px; color: var(--dark-color); }
+        .form-control { width: 100%; padding: 12px 15px; border: 1px solid #dddddd; border-radius: 6px; font-size: 15px; outline: none; transition: 0.3s; }
+        .form-control:focus { border-color: var(--dark-color); box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+        
+        .submit-form-btn { background: var(--dark-color); color: var(--primary-color); width: 100%; padding: 15px; border: none; border-radius: 6px; font-size: 16px; font-weight: 700; cursor: pointer; transition: 0.3s; text-transform: uppercase; }
+        .submit-form-btn:hover { background: var(--primary-color); color: var(--dark-color); }
+
+        /* Footer System */
+        footer { background-color: var(--dark-color); color: var(--white); padding: 60px 50px 20px; border-top: 4px solid var(--primary-color); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { color: var(--primary-color); margin-bottom: 20px; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: #bbbbbb; text-decoration: none; }
+        .footer-bottom { text-align: center; border-top: 1px solid #222222; padding-top: 20px; font-size: 14px; color: #888888; }
+
+        @media (max-width: 768px) { .contact-container { flex-direction: column; padding: 30px; } .top-bar .left, nav { display: none; } header, .page-banner { padding: 20px; } }
+    </style>
+</head>
+<body>
+
+    <!-- Context Top Communication Rail -->
+    <div class="top-bar">
+        <div class="left"><i class="fa-solid fa-graduation-cap"></i> Welcome to Class Takers Online</div>
+        <div class="right">
+            <i class="fa-solid fa-envelope"></i> <a href="mailto:classtakersonline@outlook.com">classtakersonline@outlook.com</a>
+            <i class="fa-solid fa-phone" style="margin-left: 15px;"></i> <a href="tel:+16475563085">+1 (647) 556-3085</a>
+        </div>
+    </div>
+
+    <header>
+        <a href="home.html" class="logo"><i class="fa-solid fa-graduation-cap"></i> Class Takers Online</a>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li>
+                    <a href="#">Our Services <i class="fa-solid fa-chevron-down" style="font-size: 12px;"></i></a>
+                    <ul>
+                        <li><a href="online-classes.html">Take My Online Class</a></li>
+                        <li><a href="online-exams.html">Take My Online Exam</a></li>
+                        <li><a href="homework-help.html">Homework Assistance</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <a href="contact.html" class="cta-btn">Get A Quote</a>
+    </header>
+
+    <section class="page-banner">
+        <h1>Connect With <span>Our Experts</span></h1>
+        <p>Get in touch with an expert immediately or receive a custom quote within minutes.</p>
+    </section>
+
+    <!-- Content Blocks Structure -->
+    <section class="contact-container">
+        <div class="contact-info">
+            <h2>Let's Handle Your Portals</h2>
+            <p>Our operational management help desk stays actively monitored around the clock. Reach out via email or phone for direct support regarding complex deadlines.</p>
+            
+            <div class="info-card">
+                <i class="fa-solid fa-envelope-open-text"></i>
+                <div>
+                    <h4>Email Assistance</h4>
+                    <p>classtakersonline@outlook.com</p>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <i class="fa-solid fa-phone-volume"></i>
+                <div>
+                    <h4>Call / SMS Support</h4>
+                    <p>+1 (647) 556-3085</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form-wrapper">
+            <h3 style="margin-bottom: 25px; font-size: 24px;">Request a Free Quote</h3>
+            
+            <!-- Updated Formspree to Outlook Link -->
+            <form action="https://formspree.io/f/classtakersonline@outlook.com" method="POST">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="name" class="form-control" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" name="_replyto" class="form-control" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label>Select Service</label>
+                    <select name="service" class="form-control" required>
+                        <option value="">-- Choose Option --</option>
+                        <option value="class">Take My Full Online Class</option>
+                        <option value="exam">Take My Online Exam / Quiz</option>
+                        <option value="homework">Homework / Essay Assistance</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Deadline Urgency</label>
+                    <select name="urgency" class="form-control" required>
+                        <option value="urgent">Urgent (Less than 24 Hours)</option>
+                        <option value="moderate">3 to 5 Days</option>
+                        <option value="flexible">Flexible / Full Term Course</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Additional Instructions</label>
+                    <textarea name="message" class="form-control" rows="4" placeholder="Share subject details, topic name, or special guidelines..."></textarea>
+                </div>
+                
+                <input type="hidden" name="_next" value="contact.html">
+                <button type="submit" class="submit-form-btn">Submit Details</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Class Takers Online</h4>
+                <p style="color: #bbbbbb; font-size: 14px;">Your elite companion for stress-free online dynamic learning management systems.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="online-classes.html">Take My Class</a></li>
+                    <li><a href="online-exams.html">Take My Exam</a></li>
+                    <li><a href="homework-help.html">Homework Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get In Touch</h4>
+                <p style="color: #bbbbbb; font-size: 14px; margin-bottom: 10px;"><i class="fa-solid fa-envelope" style="color: var(--primary-color);"></i> classtakersonline@outlook.com</p>
+                <p style="color: #bbbbbb; font-size: 14px;"><i class="fa-solid fa-phone" style="color: var(--primary-color);"></i> +1 (647) 556-3085</p>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 Class Takers Online. All Rights Reserved.</p></div>
+    </footer>
+</body>
+</html>

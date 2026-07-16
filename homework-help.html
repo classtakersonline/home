@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework Assistance | Class Takers Online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-color: #FFCC00; --dark-color: #111111; --light-bg: #f9f9f9; --text-color: #333333; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { color: var(--text-color); background-color: var(--white); }
+
+        .top-bar { background-color: var(--dark-color); color: var(--white); padding: 10px 50px; display: flex; justify-content: space-between; font-size: 14px; border-bottom: 2px solid var(--primary-color); }
+        .top-bar a { color: var(--primary-color); text-decoration: none; margin-left: 15px; }
+        header { background-color: var(--white); box-shadow: 0 4px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; font-weight: 700; font-size: 22px; color: var(--dark-color); text-decoration: none; }
+        .logo i { color: var(--primary-color); font-size: 30px; margin-right: 10px; }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { position: relative; padding: 10px 15px; }
+        nav ul li a { text-decoration: none; color: var(--dark-color); font-weight: 600; }
+        nav ul li ul { display: none; position: absolute; top: 100%; left: 0; background-color: var(--dark-color); width: 220px; padding: 10px 0; }
+        nav ul li ul li a { color: var(--white); display: block; padding: 10px 20px; }
+        nav ul li ul li a:hover { background-color: var(--primary-color); color: var(--dark-color); }
+        nav ul li:hover > ul { display: block; }
+        .cta-btn { background-color: var(--primary-color); color: var(--dark-color); padding: 10px 25px; border-radius: 6px; font-weight: 600; text-decoration: none; transition: 0.3s; }
+        .cta-btn:hover { background-color: var(--dark-color); color: var(--primary-color); }
+
+        .page-banner { background: linear-gradient(rgba(17,17,17,0.9), rgba(17,17,17,0.9)), url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1950&q=80') center/cover; padding: 100px 50px; text-align: center; color: var(--white); }
+        .page-banner h1 span { color: var(--primary-color); }
+
+        .content-section { padding: 80px 50px; display: flex; gap: 50px; align-items: center; max-width: 1200px; margin: 0 auto; }
+        .content-text { flex: 1; }
+        .content-text h2 { font-size: 32px; margin-bottom: 20px; }
+        .content-text p { font-size: 16px; line-height: 1.8; color: #555; margin-bottom: 20px; }
+        .content-img { flex: 1; text-align: center; }
+        .content-img img { max-width: 100%; border-radius: 12px; }
+
+        /* Subjects Grid */
+        .subjects-section { padding: 80px 50px; background: var(--light-bg); text-align: center; }
+        .sub-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1200px; margin: 40px auto 0; }
+        .sub-card { background: var(--white); padding: 25px; border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); border-bottom: 3px solid transparent; transition: 0.3s; }
+        .sub-card:hover { border-bottom-color: var(--primary-color); transform: translateY(-5px); }
+        .sub-card i { font-size: 35px; color: var(--dark-color); margin-bottom: 15px; }
+
+        footer { background-color: var(--dark-color); color: var(--white); padding: 60px 50px 20px; border-top: 4px solid var(--primary-color); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { color: var(--primary-color); margin-bottom: 20px; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: #bbbbbb; text-decoration: none; }
+        .footer-bottom { text-align: center; border-top: 1px solid #222222; padding-top: 20px; font-size: 14px; color: #888888; }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="left"><i class="fa-solid fa-graduation-cap"></i> Welcome to Class Takers Online</div>
+        <div class="right">
+            <i class="fa-solid fa-envelope"></i> <a href="mailto:classtakersonline@gmail.com">classtakersonline@gmail.com</a>
+            <i class="fa-solid fa-phone" style="margin-left: 15px;"></i> <a href="tel:+16475563085">+1 (647) 556-3085</a>
+        </div>
+    </div>
+
+    <header>
+        <a href="home.html" class="logo"><i class="fa-solid fa-graduation-cap"></i> Class Takers Online</a>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li>
+                    <a href="#">Our Services <i class="fa-solid fa-chevron-down" style="font-size: 12px;"></i></a>
+                    <ul>
+                        <li><a href="online-classes.html">Take My Online Class</a></li>
+                        <li><a href="online-exams.html">Take My Online Exam</a></li>
+                        <li><a href="homework-help.html">Homework Assistance</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <a href="contact.html" class="cta-btn">Get A Quote</a>
+    </header>
+
+    <section class="page-banner">
+        <h1>Reliable <span>Homework Help</span> Experts</h1>
+        <p>Plagiarism-free solutions, tailored research case evaluations, and specialized project support.</p>
+    </section>
+
+    <section class="content-section">
+        <div class="content-text">
+            <h2>Custom Report Writing & Essay Analysis</h2>
+            <p>Stuck with complicated case studies, statistical computations, or long term term papers? Class Takers Online hosts verified assignment writers across multiple domains who ensure strict adherence to provided rubrics.</p>
+            <p>Every assignment undergoes premium checking procedures to eliminate structural errors and reference issues before delivery. We cover formats including APA, MLA, Chicago, and Harvard referencing styles cleanly.</p>
+            <a href="contact.html" class="cta-btn">Submit Assignment Details</a>
+        </div>
+        <div class="content-img">
+            <img src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=500&q=80" alt="Academic Project Writing Framework">
+        </div>
+    </section>
+
+    <section class="subjects-section">
+        <h2>Domains We <span>Actively Cover</span></h2>
+        <div class="sub-grid">
+            <div class="sub-card"><i class="fa-solid fa-calculator"></i><h4>Mathematics</h4></div>
+            <div class="sub-card"><i class="fa-solid fa-flask"></i><h4>Chemistry & Physics</h4></div>
+            <div class="sub-card"><i class="fa-solid fa-chart-line"></i><h4>Business Finance</h4></div>
+            <div class="sub-card"><i class="fa-solid fa-user-nurse"></i><h4>Nursing Informatics</h4></div>
+            <div class="sub-card"><i class="fa-solid fa-code"></i><h4>Computer Programming</h4></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Class Takers Online</h4>
+                <p style="color: #bbbbbb; font-size: 14px;">Your elite companion for stress-free online dynamic learning management systems.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="online-classes.html">Take My Class</a></li>
+                    <li><a href="online-exams.html">Take My Exam</a></li>
+                    <li><a href="homework-help.html">Homework Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get In Touch</h4>
+                <p style="color: #bbbbbb; font-size: 14px; margin-bottom: 10px;"><i class="fa-solid fa-envelope" style="color: var(--primary-color);"></i> classtakersonline@gmail.com</p>
+                <p style="color: #bbbbbb; font-size: 14px;"><i class="fa-solid fa-phone" style="color: var(--primary-color);"></i> +1 (647) 556-3085</p>
+            </div>
+        </div>
+        <div class="footer-bottom><p>&copy; 2026 Class Takers Online. All Rights Reserved.</p></div>
+    </footer>
+</body>
+</html>
